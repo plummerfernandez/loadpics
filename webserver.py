@@ -18,7 +18,7 @@ def serve_upload_form():
     return '''
     <!doctype html>
     <title>PNG <-> STL converter</title>
-    <h1>Select a .png or .stl filem</h1>
+    <h1>Select a .png or .stl file</h1>
     <form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
@@ -55,7 +55,7 @@ def convert_file():
         if is_png(content_magic):
             png2stl(tmppath, output)
             mimetype = 'application/sla'
-            filesuffix = ".slt"
+            filesuffix = ".stl"
         else:
             stl2png(tmppath, output)
             mimetype = 'image/png'
