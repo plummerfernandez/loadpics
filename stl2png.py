@@ -51,7 +51,7 @@ def getcartesianrange(vertarray): #give it the vertex array and calculate the mi
 	finalmax = max([v1,v2])
 	return finalmax
 
-def stl2png(infilename, outfilename):
+def stl2png(infilename, outstream):
     mesh = stl.StlMesh(infilename,calculate_normals=False) #do not calculate normals automatically
 
     ###------------ Converting Vertices -------------###
@@ -140,6 +140,9 @@ def stl2png(infilename, outfilename):
     import pprint
     #pprint.pprint(vertcolrlist)
 
-    with open(outfilename, 'wb') as fp:
-        w = png.Writer(width, height)
-        w.write(fp, b)
+    w = png.Writer(width, height)
+    w.write(outstream, b)
+    
+#    with open(outfilename, 'wb') as fp:
+#        w = png.Writer(width, height)
+#        w.write(fp, b)

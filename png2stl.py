@@ -205,7 +205,7 @@ def reformatToColors(pxls):
     b = np.reshape(a, (len(pxls)/3, 3))  
     return b
 
-def png2stl(infilename, outfilename):
+def png2stl(infilename, outstream):
     ##sequence
     px = readPNG(infilename) 
     colrlist = reformatToColors(px)
@@ -214,10 +214,10 @@ def png2stl(infilename, outfilename):
     totalarray = tripletuplefy(vertarray)
     #pprint.pprint(totalarray)
 
-    with open(outfilename, 'wb') as fp:
-        writer = Binary_STL_Writer(fp)
-        writer.add_faces(totalarray)
-        writer.close()
+#    with open(outfilename, 'wb') as fp:
+    writer = Binary_STL_Writer(outstream)
+    writer.add_faces(totalarray)
+    writer.close()
 
 
 if __name__ == '__main__':
