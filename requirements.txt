@@ -1,0 +1,4 @@
+flask==0.10.1
+numpy-stl>=1.7.0
+pypng>=0.0.18
+gunicorn

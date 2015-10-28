@@ -79,4 +79,6 @@ def convert_file():
 if __name__ == "__main__":
 #    stl2png("tmp/pill.stl", "tmp/pill-2.png")
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-    app.run(debug=DEBUG)
+    port = int(os.environ.get("PORT", 5000))
+    debug = bool(os.environ.get("DEBUG", DEBUG))
+    app.run(debug=debug, port=port)
