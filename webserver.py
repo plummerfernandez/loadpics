@@ -1,12 +1,12 @@
-from flask import Flask, request, redirect, url_for, send_file, make_response, abort
+from flask import Flask, request, redirect, send_file, make_response, abort, render_template
 from png2stl import png2stl
 from stl2png import stl2png
 from werkzeug import secure_filename
 import os
 import io
-from tempfile import SpooledTemporaryFile, mkstemp, mktemp
+from tempfile import SpooledTemporaryFile, mktemp
 
-DEBUG = True
+DEBUG = False
 UPLOAD_FOLDER = 'tmp'
 ALLOWED_EXTENSIONS = set(['stl', 'STL', 'png', 'PNG'])
 
@@ -15,11 +15,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def serve_upload_form():
+    return render_template('index.html')
+# this is what a minimum form looks like
     return '''
     <!doctype html>
     <title>PNG <-> STL converter</title>
     <h1>Select a .png or .stl file</h1>
-    <form action="" method=post enctype=multipart/form-data>
+    <form action="/" method=post enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
     </form>
