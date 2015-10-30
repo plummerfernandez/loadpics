@@ -34,12 +34,6 @@ def allowed_file(filename):
 def replace_suffix(filename, suffix):
     return os.path.splitext(os.path.basename(filename))[0] + suffix
 
-def mk_response(body, content_type, filename):
-    response = make_response(body)
-    response.headers['Content-Type'] = content_type
-    response.headers['Content-Disposition'] = 'attachment; filename=' + filename
-    return response
-
 def is_png(content_magic) :
     return content_magic[0] == chr(0x89) and content_magic[1] == chr(0x50) and content_magic[2] == chr(0x4E) and content_magic[3] == chr(0x47) and content_magic[4] == chr(0x0D) and content_magic[5] == chr(0x0A) and content_magic[6] == chr(0x1A) and content_magic[7] == chr(0x0A)
 
