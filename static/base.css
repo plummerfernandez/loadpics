@@ -1,8 +1,37 @@
+html { 
+  background: url(bg.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body { 
+ background-color:rgba(0, 0, 0, 0.8);
+  font-family: 'Droid Sans', sans-serif;  
+  height: 100%;
+    margin: 100px;
+
+}
+
 h1 {
+  color: white;
     margin-top: 2em;
+    font-size: 20px;
 }
 
 form div.form-group {
     margin-top: 1.5em;
+    color: white;
 }
 
+h2 {
+    color: #ddd;
+    margin-top: 3em;
+    font-size: 10px;
+}
+
+#container{
+  padding-top: 0px;
+  padding-bottom: 40px;
+}
